@@ -1,0 +1,256 @@
+
+/* Main application shell */
+.shell {
+  min-height: 100svh;
+}
+
+/* Skip navigation accessibility */
+.skip {
+  position: absolute;
+  left: 16px;
+  top: 8px;
+  transform: translateY(-150%);
+  background: var(--surface-raised);
+  color: var(--text);
+  padding: 10px 14px;
+  border: 1px solid var(--teal);
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.skip:focus {
+  transform: none;
+}
+
+/* Top header */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  padding: 22px 32px;
+  background: rgba(7, 19, 29, 0.82);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+}
+
+.mark {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.tagline {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Backend connection status */
+.status {
+  max-width: 36rem;
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.status-label {
+  display: inline-block;
+  margin-right: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.status-unavailable .status-label {
+  color: var(--orange);
+}
+
+/* Main application layout */
+.frame {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  min-height: calc(100svh - 83px);
+}
+
+/* Sidebar */
+.nav {
+  padding: 28px 16px;
+  background: rgba(9, 25, 35, 0.75);
+  border-right: 1px solid var(--line);
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 7px;
+}
+
+/* Navigation links */
+.nav a {
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 11px 14px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.nav a:hover {
+  color: var(--text);
+  background: rgba(89, 217, 194, 0.07);
+  border-color: var(--line);
+  transform: translateX(3px);
+}
+
+/* Active navigation link */
+.nav a[aria-current='page'] {
+  color: var(--teal);
+  background: rgba(89, 217, 194, 0.11);
+  border-color: rgba(89, 217, 194, 0.24);
+  box-shadow: inset 3px 0 0 var(--teal);
+}
+
+/* Main content */
+.content {
+  min-width: 0;
+  padding: 42px 48px 64px;
+}
+
+.content:focus {
+  outline: none;
+}
+
+/* Section typography */
+.section {
+  max-width: 900px;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: var(--lime);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.section h1,
+.route-error h1 {
+  color: var(--text);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+}
+
+.purpose {
+  max-width: 650px;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.section h2 {
+  margin-top: 34px;
+  color: var(--text);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.section ul {
+  margin: 14px 0 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.note {
+  margin-top: 32px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.route-error {
+  min-height: 100svh;
+  padding: 48px 28px;
+}
+
+/* Mobile and tablet layout */
+@media (max-width: 800px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 18px;
+  }
+
+  .frame {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    padding: 10px 12px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav ul {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+  }
+
+  .nav a {
+    white-space: nowrap;
+  }
+
+  .nav a:hover {
+    transform: none;
+  }
+
+  .content {
+    padding: 30px 18px 48px;
+  }
+}
+
+@media (max-width: 420px) {
+  .mark {
+    font-size: 13px;
+  }
+
+  .tagline {
+    font-size: 12px;
+  }
+
+  .content {
+    padding: 26px 15px 40px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .nav a {
+    transition: none;
+  }
+}

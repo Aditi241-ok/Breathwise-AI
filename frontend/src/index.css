@@ -1,0 +1,132 @@
+
+:root {
+  color-scheme: dark;
+
+  /* Atmospheric Lab color palette */
+  --navy: #07131D;
+  --surface: #0D1E29;
+  --surface-raised: #122936;
+
+  --text: #EAF4F2;
+  --muted: #91A7AD;
+
+  --teal: #59D9C2;
+  --lime: #B8F36B;
+  --orange: #F2A65A;
+
+  --line: rgba(89, 217, 194, 0.18);
+  --glow: rgba(89, 217, 194, 0.08);
+
+  /* Typography */
+  --font: 'Segoe UI', system-ui, sans-serif;
+  --mono: 'Consolas', 'Courier New', monospace;
+
+  /* Global settings */
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--navy);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Consistent box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Page foundation */
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--navy);
+}
+
+/* Typography defaults */
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+/* Keyboard accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Atmospheric Lab background */
+body {
+  background:
+    radial-gradient(
+      ellipse at 15% 10%,
+      rgba(89, 217, 194, 0.08),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 85% 80%,
+      rgba(184, 243, 107, 0.035),
+      transparent 35%
+    ),
+    var(--navy);
+
+  background-attachment: fixed;
+}
+
+/* Subtle scientific grid */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(89, 217, 194, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(89, 217, 194, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keep application content above the background */
+#root {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+}
+

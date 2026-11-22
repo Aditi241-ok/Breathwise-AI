@@ -1,0 +1,96 @@
+
+.metric-card {
+  padding: 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.metric-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+}
+
+.metric-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.metric-label {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.metric-status {
+  color: var(--lime);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.metric-reading {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.metric-reading strong {
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.metric-reading span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.metric-description {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Data source badge */
+.data-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.data-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.data-badge-measured .data-badge-dot {
+  background: var(--teal);
+}
+
+.data-badge-predicted .data-badge-dot {
+  background: var(--lime);
+}
+
+.data-badge-estimated .data-badge-dot {
+  background: var(--orange);
+}
+
+.data-badge-demonstration .data-badge-dot {
+  background: var(--muted);
+}
